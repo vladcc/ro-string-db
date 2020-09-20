@@ -1,0 +1,1 @@
+g++ -I../data_pool -I../matrix -I../string_pool -I../sort_vector ro_string_table.cpp test_ro_string_table.cpp run_local_tests.cpp -o test.bin -Wall -Wfatal-errors

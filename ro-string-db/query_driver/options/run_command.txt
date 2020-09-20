@@ -1,0 +1,1 @@
+awk -f parse-opts-gen.awk opts-gen.txt

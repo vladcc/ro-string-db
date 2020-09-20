@@ -1,0 +1,3 @@
+id=2;fruit,type;u
+#type=normal;fruit,price;e
+#id=2;fruit,type;u

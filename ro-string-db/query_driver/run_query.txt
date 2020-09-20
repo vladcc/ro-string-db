@@ -1,0 +1,13 @@
+./query_driver.bin --input-file ../test_data/fruit.csv --delimiter ';' --field-info id=1,fruit=1,type=0,price=0 --source id=2 --targets fruit,type -u --dump
+#./query_driver.bin --input-file ../test_data/fruit.csv --delimiter ';' --field-info id=1,fruit=1,type=0,price=0 --source id=2 -u --dump
+#./query_driver.bin --input-file ../test_data/fruit.csv --delimiter ';' --field-info id=1,price=0 --source id=2 --targets price -u --dump
+#./query_driver.bin --input-file ../test_data/fruit.csv --delimiter ';' --field-info id=1,fruit=1,type=0,price=0 --source type=normal --targets fruit,price -e --dump
+#./query_driver.bin --input-file ../test_data/fruit.csv --delimiter ';' --field-info id=1,fruit=1 --filter-names-keep id,fruit --source id=2 --targets fruit -u --dump
+#./query_driver.bin --input-file ../test_data/fruit.csv --delimiter ';' --field-info id=1,fruit=1,type=0,price=0 --dump -q ./query_file.txt
+#./query_driver.bin --input-file ./big.csv --delimiter ";" --field-info id=1,fruit=1,type=0,price=0  --source id=id_23241 --targets fruit,type -u
+#./query_driver.bin --input-file ./big.csv --delimiter ';' --field-info id=1,fruit=1,type=0,price=0  --source type=type_11621 --targets id,fruit -e
+#./query_driver.bin --input-file ./big.csv --delimiter ";" --field-info id=1,fruit=1  --source id=id_23241 --targets fruit -u
+#./query_driver.bin --input-file ./big.csv --delimiter ';' --field-info id=1,fruit=1,type=0,price=0 -q ./many_lookups.txt
+#./query_driver.bin --input-file ./big.csv --delimiter ';' --field-info id=1,fruit=1,type=0,price=0 -q ./many_lups_1nu_3r.txt
+#./query_driver.bin --input-file ../test_data/fruit_quotes.csv --delimiter ';' --field-info id=1,fruit=1,type=0,price=0 --source id=2 --targets fruit,type -u --dump
+#./query_driver.bin --input-file ../test_data/fruit_quotes.csv --delimiter ';' --field-info id=1,fruit=1,type=0,price=0 --source type=normal --targets id,fruit,price -e --dump

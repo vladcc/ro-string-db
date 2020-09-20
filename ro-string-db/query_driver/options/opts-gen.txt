@@ -1,0 +1,179 @@
+# --input-file|-i
+# --query-file|-q
+# --delimiter|-d
+# --field-info|-f field1=1,field2=0,field3=0
+# --csv-fields|-c field1,field2,field3
+# --source|-s field-name=value
+# --targets|-t field-names
+# --lookup-unique|-u
+# --lookup-equal-range|-e
+# --dump|-D
+# --verbose|-V
+# --help|-h
+# --version|-v
+
+context_arg_type program_options
+context_var_name (&opts)
+
+unbound_arg_code
+	equit("argument without option: %s\n", arg);
+end_code
+
+on_error_code
+	FILE * where = stdout; // preserve output order
+	fprintf(where, "%s: error: ", program_name);
+	switch (err_code)
+	{
+		case OPTS_UNKOWN_OPT_ERR:
+			fprintf(where, "option '%s' unknown\n", err_opt);
+		break;
+		case OPTS_ARG_REQ_ERR:
+			fprintf(where, "option '%s' requires an argument\n", err_opt);
+		break;
+		case OPTS_NO_ARG_REQ_ERR:
+			fprintf(where, "option '%s' does not take arguments\n", err_opt);
+		break;
+		default:
+		break;
+	}
+	
+	exit(EXIT_FAILURE);
+end_code
+
+long_name  input-file
+short_name i
+takes_args true
+handler_code
+	program_options * opts = (program_options *)(ctx);
+	opts->in_file = opt_arg;
+end_code
+help_code
+	printf("help for flag %s, %s\n", short_name, long_name);
+end_code
+end
+
+long_name  query-file
+short_name q
+takes_args true
+handler_code
+	read_query_file(opt, opt_arg, ctx);
+end_code
+help_code
+	printf("help for flag %s, %s\n", short_name, long_name);
+end_code
+end
+
+long_name  delimiter
+short_name d
+takes_args true
+handler_code
+	program_options * opts = (program_options *)(ctx);
+	opts->delimiter = *opt_arg;
+end_code
+help_code
+	printf("help for flag %s, %s\n", short_name, long_name);
+end_code
+end
+
+long_name  field-info
+short_name f
+takes_args true
+handler_code
+	get_field_info(opt, opt_arg, ctx);
+end_code
+help_code
+	printf("help for flag %s, %s\n", short_name, long_name);
+end_code
+end
+
+long_name  csv-fields
+short_name c
+takes_args true
+handler_code
+	get_csv_fields(opt, opt_arg, ctx);
+end_code
+help_code
+	printf("help for flag %s, %s\n", short_name, long_name);
+end_code
+end
+
+long_name  source
+short_name s
+takes_args true
+handler_code
+	get_source(opt, opt_arg, ctx);
+end_code
+help_code
+	printf("help for flag %s, %s\n", short_name, long_name);
+end_code
+end
+
+long_name  targets
+short_name t
+takes_args true
+handler_code
+	get_targets(opt, opt_arg, ctx);
+end_code
+help_code
+	printf("help for flag %s, %s\n", short_name, long_name);
+end_code
+end
+
+long_name  lookup-unique
+short_name u
+takes_args false
+handler_code
+	program_options * opts = (program_options *)(ctx);
+	opts->lookups.push_back(UNIQ);
+end_code
+help_code
+	printf("help for flag %s, %s\n", short_name, long_name);
+end_code
+end
+
+long_name  lookup-equal-range
+short_name e
+takes_args false
+handler_code
+	program_options * opts = (program_options *)(ctx);
+	opts->lookups.push_back(EQR);
+end_code
+help_code
+	printf("help for flag %s, %s\n", short_name, long_name);
+end_code
+end
+
+long_name  dump
+short_name D
+takes_args false
+handler_code
+	program_options * opts = (program_options *)(ctx);
+	opts->dump_in_file = true;
+end_code
+help_code
+	printf("help for flag %s, %s\n", short_name, long_name);
+end_code
+end
+
+long_name  help
+short_name h
+takes_args false
+handler_code
+	opts_print_help((opts_table *)ctx);
+	exit(EXIT_SUCCESS);
+end_code
+help_code
+	printf("help for flag %s, %s\n", short_name, long_name);
+end_code
+end
+
+long_name  version
+short_name v
+takes_args false
+handler_code
+	
+end_code
+help_code
+	printf("help for flag %s, %s\n", short_name, long_name);
+end_code
+end

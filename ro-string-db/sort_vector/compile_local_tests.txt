@@ -1,0 +1,1 @@
+g++ -I../data_pool test_sort_vector.cpp run_local_tests.cpp -o test.bin -g -Wall -Wfatal-errors

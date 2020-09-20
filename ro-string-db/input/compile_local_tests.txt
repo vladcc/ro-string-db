@@ -1,0 +1,1 @@
+g++ run_local_tests.cpp test_input.cpp input.cpp -o test.bin -Wall -Wfatal-errors -g

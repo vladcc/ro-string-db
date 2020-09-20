@@ -1,0 +1,1 @@
+g++ run_local_tests.cpp test_matrix.cpp -o test.bin -Wall

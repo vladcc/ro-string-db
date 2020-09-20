@@ -1,0 +1,1 @@
+awk -vHowMany=10 'BEGIN{print "id;fruit;type;price"; for (i = 1; i <= HowMany; ++i ) {if (i%2) ++j;  printf("id_%s;fruit_%s;type_%s;price_%s\n", i, i, j, i)} }'

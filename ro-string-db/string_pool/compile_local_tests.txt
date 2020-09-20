@@ -1,0 +1,1 @@
+g++ test_string_pool.cpp run_local_tests.cpp -o test.bin -Wall
